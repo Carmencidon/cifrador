@@ -14,6 +14,7 @@ h1 {
     position:relative;
     justify-content: center;
     padding: 2px;
+    margin-top: 0px;
     
   }
 .copiar-pegar{
@@ -52,7 +53,7 @@ textarea {
 }
 
   #COPIAR_C{
-    margin-left: 495PX;
+    margin-left: 450PX;
    
 
   }
@@ -61,7 +62,7 @@ textarea {
 
   }
   #COPIAR_D{
-    margin-left: 500px;
+    margin-left: 470px;
 
   }
   #PEGAR_D{
@@ -71,14 +72,14 @@ textarea {
   
 #cifrado {
 
-    margin-right: 25px;
+    margin-right: 10px;
     margin-left: 40px;
    
 
 }
 
 #descifrado {
-    margin-left: 25px;
+    margin-left: 40px;
 }
 
 #cifrado button,
@@ -102,14 +103,14 @@ textarea {
 
 #CIFRAR {
     background-color: #ACDECC;
-    margin-right: 80px;
+    margin-right: 210px;
     margin-left: 170px;
 
 }
 
 #DESCIFRAR {
     background-color: #FF9AA2;
-    margin-left: 300px;
+    margin-left: 170px;
 
 
 }
@@ -156,3 +157,73 @@ footer{
     
 
 }
+
+
+/* Estilos para pantallas grandes */
+@media only screen and (min-width: 992px) {
+    .textarea-container {
+      display: flex;
+      justify-content: center;
+    }
+    .copiar-pegar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .botones {
+      display: flex;
+      justify-content: center;
+    }
+    textarea {
+      width: 450px;
+      margin-left: 35px;
+      padding: 20px;
+      padding-bottom: 80px;
+    }
+  }
+  
+  /* Estilos para pantallas medianas */
+  @media only screen and (max-width: 991px) and (min-width: 768px) {
+    .textarea-container {
+      display: flex;
+      justify-content: center;
+    }
+    .copiar-pegar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .botones {
+      display: flex;
+      justify-content: center;
+    }
+    textarea {
+      width: 100%;
+      max-width: 450px;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 20px;
+      padding-bottom: 80px;
+  
+    }
+  }
+  
+  /* Estilos para pantallas pequeñas */
+  @media only screen and (max-width: 767px) {
+    textarea {
+      width: 100%;
+      padding: 10px;
+      padding-bottom: 60px;
+    }
+    #COPIAR_C, #COPIAR_D, #PEGAR_C, #PEGAR_D {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    #COPIAR_C, #COPIAR_D {
+      margin-bottom: 10px;
+    }
+    #COPIAR_C, #PEGAR_C {
+      margin-right: 0;
+    }
+  }
+  
