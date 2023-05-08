@@ -1,0 +1,158 @@
+div {
+    justify-content: center;
+    padding: 20px;
+}
+
+h1 {
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+
+}
+
+.textarea-container{
+    position:relative;
+    justify-content: center;
+    padding: 2px;
+    
+  }
+.copiar-pegar{
+   
+    justify-content: center;
+    padding: 0px;
+    margin-bottom: 0px;
+
+}
+.botones{
+ 
+    justify-content: center;
+    padding: 0px;
+}
+textarea {
+
+    width: 450px;
+    height: 50px;;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 35px;
+    padding: 40px;
+    border-radius: 5px;
+    background: all;
+    border: solid;
+    padding-bottom: 120px;
+    transition: 1s;
+
+}
+
+#COPIAR_C img,#COPIAR_D img, #PEGAR_C img, #PEGAR_D img{
+
+    width:20px; 
+    heigth:20px;
+}
+
+  #COPIAR_C{
+    margin-left: 495PX;
+   
+
+  }
+  #PEGAR_C{
+    margin-left: 5PX;
+
+  }
+  #COPIAR_D{
+    margin-left: 500px;
+
+  }
+  #PEGAR_D{
+    margin-left: 5px;
+
+  }
+  
+#cifrado {
+
+    margin-right: 25px;
+    margin-left: 40px;
+   
+
+}
+
+#descifrado {
+    margin-left: 25px;
+}
+
+#cifrado button,
+#descifrado button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#cifrado:hover {
+    border-color: green;
+   
+
+}
+
+#descifrado:hover {
+    border-color: red;
+    
+
+}
+
+#CIFRAR {
+    background-color: #ACDECC;
+    margin-right: 80px;
+    margin-left: 170px;
+
+}
+
+#DESCIFRAR {
+    background-color: #FF9AA2;
+    margin-left: 300px;
+
+
+}
+
+#DESCIFRAR,
+#CIFRAR {
+    color: black;
+    width: 250px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 1s;
+    background: all;
+    cursor: pointer;
+
+
+
+}
+
+#CIFRAR:hover {
+    background-color: #C4E0E3;
+    transform: scale(1.2);
+    color: gray;
+
+}
+
+#DESCIFRAR:hover {
+    background-color: #FCC1C5;
+    transform: scale(1.2);
+    color: gray;
+
+}
+header{
+   
+    padding: 10px;
+    margin-bottom: 20px;
+}
+footer{
+    text-align: center;
+    background-color:f4f7f7;
+    padding: 0;
+    margin-top: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+
+}

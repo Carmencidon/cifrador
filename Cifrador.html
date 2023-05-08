@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrador de texto</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    
+        <header>
+            <h1>CIFRADOR DE TEXTO</h1>
+        </header>
+    
+    <div>
+        <main>
+            <form>
+                <div class="copiar-pegar">
+                    <button id="COPIAR_C"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAo0lEQVR4nO2WQQrCQAxF30J7AhcWuxG9i9DZ1dz/LFKYRSkRk3EMCHnwoQy0j5n8lkKiMwIFkA9ZgBsdKQbpNt3kYswVeNbre6SY3nJxiJvl42amrWLqnF0zL8qDrOLTG/liEWs78DTachoqKV7Jo5YsF/k68acfkEPjj8A+s1d8qWvnL+Rzvd8lfgADQcgu604n4Bgtll8USSOkSBohRUqI4gWUeYYayLAKlQAAAABJRU5ErkJggg=="></button>
+                    <button id="PEGAR_C"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9ElEQVR4nO2ZSwrEIBBEi1wh3mKSO0zWupK+/1mGgAFXM9FpP9EqcJmmHl1tCwHytQHwACTx+PBtN/IZEDFMUS0AdgDui4lLuRB369jg5fSUrF3BgBaIhJMVQ9chiMsB0TSgWSdZQ4PUvrWkNsg/e+TVE0gpCUEisSOKklGipaLpQQ6FBZl6jhIdqQ0hv7wRBOwIGC1wRiaekRU6WluDGB0OnHW4R4SbHeMNu8x8a62jgJgeQYaJlhAE7Eg3w97lW0sLxLQG4bCDwz5BtORGoUe8taQyiNEAscogzaK1jQKyBBj7dJBcEQTsCIpEq8Ufq3fs4AM6SM2BPK3FVgAAAABJRU5ErkJggg=="></button>
+                    <button id="COPIAR_D"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAo0lEQVR4nO2WQQrCQAxF30J7AhcWuxG9i9DZ1dz/LFKYRSkRk3EMCHnwoQy0j5n8lkKiMwIFkA9ZgBsdKQbpNt3kYswVeNbre6SY3nJxiJvl42amrWLqnF0zL8qDrOLTG/liEWs78DTachoqKV7Jo5YsF/k68acfkEPjj8A+s1d8qWvnL+Rzvd8lfgADQcgu604n4Bgtll8USSOkSBohRUqI4gWUeYYayLAKlQAAAABJRU5ErkJggg=="></button>
+                    <button id="PEGAR_D"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9ElEQVR4nO2ZSwrEIBBEi1wh3mKSO0zWupK+/1mGgAFXM9FpP9EqcJmmHl1tCwHytQHwACTx+PBtN/IZEDFMUS0AdgDui4lLuRB369jg5fSUrF3BgBaIhJMVQ9chiMsB0TSgWSdZQ4PUvrWkNsg/e+TVE0gpCUEisSOKklGipaLpQQ6FBZl6jhIdqQ0hv7wRBOwIGC1wRiaekRU6WluDGB0OnHW4R4SbHeMNu8x8a62jgJgeQYaJlhAE7Eg3w97lW0sLxLQG4bCDwz5BtORGoUe8taQyiNEAscogzaK1jQKyBBj7dJBcEQTsCIpEq8Ufq3fs4AM6SM2BPK3FVgAAAABJRU5ErkJggg=="></button>
+
+                </div>
+                <div class="textarea-container">
+                    <textarea id="cifrado" placeholder="Ponga aqui el texto a cifrar"></textarea>
+                    <textarea id="descifrado" placeholder="Ponga aqui el texto a descifrar"></textarea>
+                </div>
+
+
+                <div class="botones"></div>
+
+                <button id="CIFRAR">CIFRAR</button>
+                <button id="DESCIFRAR">DESCIFRAR</button>
+    </div>
+
+
+
+
+
+
+    </form>
+    </main>
+    </div>
+    <script>
+        var cifrado = document.getElementById('cifrado');
+        var descifrado = document.getElementById('descifrado');
+        var resultadoCifrado = "";
+        var resultadoDescifrado = "";
+
+        cifrado.addEventListener('keydown', function (event) {
+            const key = event.key;
+            if (key.length === 1 && !/[a-z\s]/.test(key)) {
+                event.preventDefault();
+            }
+        });
+
+        descifrado.addEventListener('keydown', function (event) {
+            const key = event.key;
+            if (key.length === 1 && !/[a-z\s]/.test(key)) {
+                event.preventDefault();
+            }
+        });
+
+        function copiarTexto_Cifrado() {
+            var texto = document.getElementById('cifrado').value; // Obtener el texto a copiar desde un elemento de la página
+            var elem = document.createElement("textarea"); // Crear un elemento textarea temporal para copiar el texto
+            elem.value = texto; // Asignar el texto a copiar al elemento textarea
+            document.body.appendChild(elem); // Agregar el elemento textarea a la página
+            elem.select(); // Seleccionar el contenido del elemento textarea
+            document.execCommand("copy"); // Copiar el contenido seleccionado al portapapeles
+            document.body.removeChild(elem); // Eliminar el elemento textarea temporal de la página
+        }
+        function copiarTexto_Descifrado(){
+            var texto = document.getElementById('descifrado').value; // Obtener el texto a copiar desde un elemento de la página
+            var elem = document.createElement("textarea"); // Crear un elemento textarea temporal para copiar el texto
+            elem.value = texto; // Asignar el texto a copiar al elemento textarea
+            document.body.appendChild(elem); // Agregar el elemento textarea a la página
+            elem.select(); // Seleccionar el contenido del elemento textarea
+            document.execCommand("copy"); // Copiar el contenido seleccionado al portapapeles
+            document.body.removeChild(elem); // Eliminar el elemento textarea temporal de la página
+        }
+
+        function pegar_Cifrado(event) {
+            event.preventDefault();
+            var elemento = document.getElementById('cifrado');
+            elemento.focus();
+            navigator.clipboard.readText()
+                .then(function (text) {
+                    cifrado.value = elemento.value + text;
+                })
+                .catch(function (err) {
+                    console.error('No se pudo leer el portapapeles: ', err);
+                });
+        }
+
+        function pegar_Descifrado(event) {
+            event.preventDefault();
+            var elemento = document.getElementById('descifrado');
+            elemento.focus();
+            navigator.clipboard.readText()
+                .then(function (text) {
+                    descifrado.value = elemento.value + text;
+                })
+                .catch(function (err) {
+                    console.error('No se pudo leer el portapapeles: ', err);
+                });
+        }
+
+
+        function CIFRADO(event) {
+            event.preventDefault()
+            var texto = cifrado.value;
+            console.log(texto);
+
+            if (texto.trim() === "") {
+                alert("USTED NO HA MANDADO A CIFRAR NADA");
+            } else {
+                resultadoCifrado = "";
+                for (var i = 0; i < texto.length; i++) {
+                    var letra = texto.charAt(i);
+                    if (letra === 'a') {
+                        resultadoCifrado += 'ai';
+                    } else if (letra === 'e') {
+                        resultadoCifrado += 'enter';
+                    } else if (letra === 'i') {
+                        resultadoCifrado += 'imes';
+                    } else if (letra === 'o') {
+                        resultadoCifrado += 'ober';
+                    } else if (letra === 'u') {
+                        resultadoCifrado += 'ufat';
+                    } else {
+                        resultadoCifrado += letra;
+                    }
+                }
+                cifrado.value=" ";
+                descifrado.value = resultadoCifrado;
+                
+            }
+        }
+
+
+
+        function DESCIFRADO(event) {
+            event.preventDefault()
+            var texto = descifrado.value;
+            console.log(texto);
+
+            if (texto.trim() === "") {
+                alert("USTED NO HA MANDADO A DESCIFRAR NADA");
+            } else {
+                var resultadoDescifrado = "";
+                for (var i = 0; i < texto.length; i++) {
+                    var currentChar = texto.charAt(i);
+                    if (currentChar === "a" && texto.substr(i, 2)=== "ai") {
+                        resultadoDescifrado += 'a';
+                        i++; // skip the next character since it has already been replaced
+                    }
+                    else if (currentChar === "e" && texto.substr(i, 5) === "enter") {
+                        resultadoDescifrado += 'e';
+                        i += 4; // skip the next 4 characters since they have already been replaced
+                    }
+                    else if (currentChar === "i" && texto.substr(i, 4) === "imes") {
+                        resultadoDescifrado += 'i';
+                        i += 3; // skip the next 3 characters since they have already been replaced
+                    }
+                    else if (currentChar === "o" && texto.substr(i, 4) === "ober") {
+                        resultadoDescifrado += 'o';
+                        i += 3; // skip the next 3 characters since they have already been replaced
+                    }
+                    else if (currentChar === "u" && texto.substr(i, 4) === "ufat") {
+                        resultadoDescifrado += 'u';
+                        i += 3; // skip the next 3 characters since they have already been replaced
+                    }
+                    else {
+                        resultadoDescifrado += currentChar;
+                    }
+                }
+                descifrado.value=" ";
+                cifrado.value = resultadoDescifrado;
+               
+            }
+        }
+
+        var button1 = document.getElementById("CIFRAR");
+        button1.onclick = CIFRADO;
+        var button1 = document.getElementById("COPIAR_C");
+        button1.onclick = copiarTexto_Cifrado;
+        var button1 = document.getElementById("PEGAR_C");
+        button1.onclick = pegar_Cifrado;
+        var button2 = document.getElementById("DESCIFRAR");
+        button2.onclick = DESCIFRADO;
+        var button1 = document.getElementById("COPIAR_D");
+        button1.onclick = copiarTexto_Descifrado;
+        var button1 = document.getElementById("PEGAR_D");
+        button1.onclick = pegar_Descifrado;
+    </script>
+
+
+
+
+
+<footer>
+    <p> creditos a:</p>
+    <p>Programadrora: <a href="https://www.linkedin.com/in/mar%C3%ADa-del-carmen-cid%C3%B3n-hern%C3%A1ndez-70ab29247/">Carmen Cidon</a></p>
+    <p>Agradezco al apoyo de: <a href="https://github.com/MayderC">MayderC</a> en este proyecto,<a href="https://app.aluracursos.com/formacion-etapaseleccion5">Oracle latam</a> Quien apoya nuestra educacion y a <a href="https://icons8.com/icon/8169/pegar">Pegar icon by Icons8</a> fuente de los iconos gratuitos</p>
+    <p class="copyright">&#169; Copyright Challenge Alura - 2023</p>
+
+    
+    <p></p>
+
+</footer>
+</body>
+
+
+</html>
